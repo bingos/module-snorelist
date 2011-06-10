@@ -6,18 +6,31 @@ $VERSION = '2.49';
 
 use Module::Pluggable search_path => 'Module::CoreList', require => 1, only => qr/^Module::CoreList::Perl\d+$/;
 
+sub _alias_check {
+  my $perl = shift;
+  return ( sprintf("%.3f",$perl) ) if length( $perl ) == 1;
+  return if $perl <= 5.006;
+  return ( sprintf("%.3f",$perl), sprintf("%.6f",$perl) )
+    if length( $perl ) == 4;
+  return ( sprintf("%.6f",$perl) ) if length( $perl ) == 5;
+  return;
+}
+
 %released = ();
 %deprecated = ();
 %version = ();
 
 foreach my $submodule ( Module::CoreList->plugins ) {
   my $version = $submodule->VERSION;
+  my @aliases = _alias_check( $version );
+  unshift @aliases, $version;
   {
     no strict 'refs';
-    $released{ $version } = ${"$submodule" . "::released"};
-    $version{ $version } = ${"$submodule" . "::version"};
-    $deprecated{ $version } = ${"$submodule" . "::deprecated"}
-      if ${"$submodule" . "::deprecated"};
+    $released{ $_ } = ${"$submodule" . "::released"} for @aliases;
+    $version{ $_ } = ${"$submodule" . "::version"} for @aliases;
+    if ( ${"$submodule" . "::deprecated"} ) {
+      $deprecated{ $_ } = ${"$submodule" . "::deprecated"} for @aliases;
+    }
   }
 }
 

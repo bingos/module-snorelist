@@ -12,7 +12,12 @@ $Data::Dump::QUOTE_KEYS=1;
 
 mkdir 'lib/Module/CoreList';
 
-foreach my $perl ( keys %Module::CoreList::released ) {
+my %seen;
+
+foreach my $perl ( sort keys %Module::CoreList::released ) {
+  next if $seen{ $perl };
+  my @aliases = _alias_check( $perl );
+  $seen{ $_ }++ for @aliases;
   ( my $normalised = $perl ) =~ s!\.!!;
   open( my $fh, '>', File::Spec->catfile( 'lib/Module/CoreList', 'Perl' . $normalised . '.pm' ) ) || die "$!\n";
   print $fh "package Module::CoreList::Perl$normalised;\n\n";
@@ -45,4 +50,13 @@ foreach my $perl ( keys %Module::CoreList::released ) {
   print $fh "1;\n";
 }
 
+exit 0;
 
+sub _alias_check {
+  my $perl = shift;
+  return ( sprintf("%.3f",$perl) ) if length( $perl ) == 1;
+  return ( sprintf("%.3f",$perl), sprintf("%.6f",$perl) )
+    if length( $perl ) == 4;
+  return ( sprintf("%.6f",$perl) ) if length( $perl ) == 5;
+  return;
+}
