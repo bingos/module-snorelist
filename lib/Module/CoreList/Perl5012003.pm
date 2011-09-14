@@ -620,6 +620,7 @@ $version =
 "vars"                                            => "1.01",
 "version"                                         => "0.82",
 "VMS::DCLsym"                                     => "1.03",
+'VMS::Filespec'                                   => '1.12',
 "VMS::Stdio"                                      => "2.4",
 "vmsish"                                          => "1.02",
 "warnings"                                        => "1.09",

@@ -70,6 +70,7 @@ $version =
 "DynaLoader"            => "1.04",
 "English"               => undef,
 "Env"                   => undef,
+'Errno'                 => '1.111',
 "Exporter"              => "5.562",
 "Exporter::Heavy"       => undef,
 "ExtUtils::Command"     => "1.01",

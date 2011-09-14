@@ -65,6 +65,7 @@ $version =
 "Cwd"                          => "2.08",
 "Data::Dumper"                 => "2.121",
 "DB"                           => "1.0",
+"DB_File"                      => "1.807",
 "Devel::DProf"                 => "20030813.00",
 "Devel::Peek"                  => "1.01",
 "Devel::PPPort"                => "2.009",
