@@ -147,7 +147,6 @@ $version =
 "DBM_Filter::utf8"                                => "0.02",
 "deprecate"                                       => "0.01",
 "Devel::DProf"                                    => "20080331.00",
-"Devel::DProf::dprof::V"                          => undef,
 "Devel::InnerPackage"                             => "0.3",
 "Devel::Peek"                                     => "1.06",
 "Devel::PPPort"                                   => "3.19",
@@ -613,7 +612,6 @@ $version =
 "Time::Local"                                     => "1.1901_01",
 "Time::localtime"                                 => "1.02",
 "Time::Piece"                                     => "1.20_01",
-"Time::Piece::Seconds"                            => undef,
 "Time::Seconds"                                   => undef,
 "Time::tm"                                        => "1.00",
 "Unicode"                                         => "6.0.0",
@@ -646,7 +644,6 @@ $version =
 "XS::APItest"                                     => "0.27",
 "XS::Typemap"                                     => "0.04",
 "XSLoader"                                        => "0.13",
-"XSLoader::XSLoader"                              => "0.13",
 };
 
 $deprecated =

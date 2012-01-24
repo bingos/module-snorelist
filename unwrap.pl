@@ -1,5 +1,6 @@
 use strict;
 use warnings;
+use lib 'inc';
 use Module::CoreList;
 use File::Spec;
 use Data::Dump;
