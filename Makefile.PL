@@ -11,8 +11,10 @@ WriteMakefile
     'Test::More' => '0',
     'Module::Pluggable' => 0,
   },
+  'PL_FILES' => {
+    'Data.PL' => 'lib/Module/CoreList/Data.pm',
+  },
   'EXE_FILES' => [ 'corelist' ],
-  'PL_FILES' => { 'Data.PL' => 'lib/Module/CoreList/Data.pm' },
   LICENSE => 'perl',
   @extra,
 )
