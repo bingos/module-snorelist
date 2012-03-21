@@ -6,9 +6,8 @@ $VERSION = '2.49';
 
 use Module::CoreList::Data;
 
-{ 
+{
   my $raw = Module::CoreList::Data->load;
-  use Data::Dumper; print Dumper $raw;
   %released = %{ delete $raw->{released} };
   %deprecated = %{ delete $raw->{deprecated} };
   %version = %{ delete $raw->{version} };
